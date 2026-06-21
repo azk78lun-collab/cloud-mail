@@ -51,7 +51,12 @@ const telegramService = {
 
 		const jwtToken = await jwtUtils.generateToken(c, { emailId: email.emailId })
 
-		const webAppUrl = customDomain ? `${domainUtils.toOssDomain(customDomain)}/api/telegram/getEmail/${jwtToken}` : 'https://www.cloudflare.com/404'
+		let basePath = c.env.base_path || '';
+		if (basePath.endsWith('/')) {
+			basePath = basePath.slice(0, -1);
+		}
+
+		const webAppUrl = customDomain ? `${domainUtils.toOssDomain(customDomain)}${basePath}/api/telegram/getEmail/${jwtToken}` : 'https://www.cloudflare.com/404'
 		const inlineKeyboard = [
 			[
 				{

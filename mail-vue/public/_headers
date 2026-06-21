@@ -1,6 +1,6 @@
-/assets/*
+/mail/assets/*
   Cache-Control: public, max-age=31556952, immutable
-/tinymce/*
+/mail/tinymce/*
   Cache-Control: public, max-age=604800, immutable
-/image/*
+/mail/image/*
   Cache-Control: public, max-age=604800, immutable

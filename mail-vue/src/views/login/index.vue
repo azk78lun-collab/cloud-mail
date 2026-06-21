@@ -45,7 +45,7 @@
           >{{ $t('loginBtn') }}
           </el-button>
           <el-button class="btn" v-if="settingStore.settings.linuxdoSwitch"  style="margin-top: 10px"  @click="linuxDoLogin">
-            <el-avatar src="/image/linuxdo.webp" :size="18" style="margin-right: 10px" />LinuxDo
+            <el-avatar :src="baseUrl + 'image/linuxdo.webp'" :size="18" style="margin-right: 10px" />LinuxDo
           </el-button>
         </div>
         <div v-show="show !== 'login'">
@@ -95,7 +95,7 @@
           >{{ $t('regBtn') }}
           </el-button>
           <el-button v-if="settingStore.settings.linuxdoSwitch" class="btn" style="margin-top: 10px"  @click="linuxDoLogin">
-            <el-avatar src="/image/linuxdo.webp" :size="18" style="margin-right: 10px" />LinuxDo
+            <el-avatar :src="baseUrl + 'image/linuxdo.webp'" :size="18" style="margin-right: 10px" />LinuxDo
           </el-button>
         </div>
         <template v-if="settingStore.settings.register === 0">
@@ -169,6 +169,7 @@ const accountStore = useAccountStore();
 const userStore = useUserStore();
 const uiStore = useUiStore();
 const settingStore = useSettingStore();
+const baseUrl = import.meta.env.BASE_URL;
 const loginLoading = ref(false)
 const bindLoading = ref(false)
 const oauthLoading = ref(false);
